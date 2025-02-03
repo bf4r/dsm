@@ -31,7 +31,6 @@ Please refer to the instruction map for all instructions, their example usage an
 
 # instruction map
 ## d
-### dv
 #### dvs
 - Define variable string
 - Creates a new string variable which can be used or redefined later.
@@ -40,7 +39,6 @@ Please refer to the instruction map for all instructions, their example usage an
 - Define variable int
 - Creates a new integer variable which can be used or redefined later.
 `dvi myint, 1.`
-#### dvf
 ##### dvfis
 - Define variable from int -> string
 - Converts an existing integer variable to a string variable, keeping the integer variable but creating a new string variable with a text representation of the integer variable's value.
@@ -57,7 +55,6 @@ dvs mystringnumber, 123.
 dvfsi myint, mystringnumber.
 ```
 ## m
-### mv
 #### mviavi
 - Modify variable int add variable int
 - Adds the value of the second integer variable to the value of the first one.
@@ -78,7 +75,6 @@ mvisvi a, b.
 ```
 a = 1 now (2-1).
 ## x
-### xv
 #### xvs
 - Delete variable string
 - Deletes a string variable from the list of currently string variables.
@@ -98,7 +94,6 @@ xvi myint.
 - Console clear
 - Clears the console.
 `cc`
-### cw
 #### cwu
 - Console write UTF-8
 - Writes the ASCII or Unicode value represented by the input int to the standard output.
