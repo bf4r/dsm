@@ -6,23 +6,9 @@ public class Core
     private CommandSystemOptions options = CommandSystemOptions.GetDefaultOptions();
     public Dictionary<string, string> VariableStrings = new();
     public Dictionary<string, int> VariableInts = new();
+    public Dictionary<string, bool> VariableBools = new();
     public void Run(string code)
     {
-        // define variable from int string
-        cs.Add("dvfis", argsStr =>
-        {
-            var args = argsStr.Split(",");
-            if (args.Length == 2)
-            {
-                var stringName = args[0];
-                var intToGetFromName = args[1];
-                if (VariableInts.ContainsKey(intToGetFromName))
-                {
-                    var intVal = VariableInts[intToGetFromName];
-                    VariableStrings[stringName] = intVal.ToString();
-                }
-            }
-        });
         // define variable string
         cs.Add("dvs", argsStr =>
         {
@@ -41,6 +27,39 @@ public class Core
                 if (int.TryParse(args[1], out int res))
                 {
                     VariableInts[args[0]] = res;
+                }
+            }
+        });
+        // define variable from int string
+        cs.Add("dvfis", argsStr =>
+        {
+            var args = argsStr.Split(",");
+            if (args.Length == 2)
+            {
+                var stringName = args[0];
+                var intToGetFromName = args[1];
+                if (VariableInts.ContainsKey(intToGetFromName))
+                {
+                    var intVal = VariableInts[intToGetFromName];
+                    VariableStrings[stringName] = intVal.ToString();
+                }
+            }
+        });
+        // define variable from string int
+        cs.Add("dvfsi", argsStr =>
+        {
+            var args = argsStr.Split(",");
+            if (args.Length == 2)
+            {
+                var intName = args[0];
+                var stringToGetFromName = args[1];
+                if (VariableInts.ContainsKey(stringToGetFromName))
+                {
+                    var stringVal = VariableStrings[stringToGetFromName];
+                    if (int.TryParse(stringVal, out int res))
+                    {
+                        VariableInts[intName] = res;
+                    }
                 }
             }
         });
@@ -72,24 +91,6 @@ public class Core
                 }
             }
         });
-        // define variable from string int
-        cs.Add("dvfsi", argsStr =>
-        {
-            var args = argsStr.Split(",");
-            if (args.Length == 2)
-            {
-                var intName = args[0];
-                var stringToGetFromName = args[1];
-                if (VariableInts.ContainsKey(stringToGetFromName))
-                {
-                    var stringVal = VariableStrings[stringToGetFromName];
-                    if (int.TryParse(stringVal, out int res))
-                    {
-                        VariableInts[intName] = res;
-                    }
-                }
-            }
-        });
         // x (delete) variable string
         cs.Add("xvs", name =>
         {
@@ -108,29 +109,6 @@ public class Core
         });
         // console clear
         cs.Add("cc", _ => Console.Clear());
-        // console writeline variable string
-        cs.Add("cwlvs", str =>
-        {
-            if (VariableStrings.ContainsKey(str))
-            {
-                var val = VariableStrings[str];
-                Console.WriteLine(val);
-            }
-        });
-        // console writeline variable int
-        cs.Add("cwlvi", str =>
-        {
-            if (VariableInts.ContainsKey(str))
-            {
-                var val = VariableInts[str];
-                Console.WriteLine(val);
-            }
-        });
-        // console writeline string
-        cs.Add("cwls", str =>
-        {
-            Console.WriteLine(str);
-        });
         // console write utf-8
         cs.Add("cwu", codePoint =>
         {
@@ -149,7 +127,54 @@ public class Core
                 Console.WriteLine(s);
             }
         });
-        // console writeline
+        // console write variable int
+        cs.Add("cwvi", str =>
+        {
+            if (VariableInts.ContainsKey(str))
+            {
+                var val = VariableInts[str];
+                Console.Write(val);
+            }
+        });
+        // console writeline variable int
+        cs.Add("cwlvi", str =>
+        {
+            if (VariableInts.ContainsKey(str))
+            {
+                var val = VariableInts[str];
+                Console.WriteLine(val);
+            }
+        });
+        // console write variable string
+        cs.Add("cwvs", str =>
+        {
+            if (VariableStrings.ContainsKey(str))
+            {
+                var val = VariableStrings[str];
+                Console.Write(val);
+            }
+        });
+        // console writeline variable string
+        cs.Add("cwlvs", str =>
+        {
+            if (VariableStrings.ContainsKey(str))
+            {
+                var val = VariableStrings[str];
+                Console.WriteLine(val);
+            }
+        });
+        // console write string
+        cs.Add("cws", str =>
+        {
+            Console.Write(str);
+        });
+        // console writeline string
+        cs.Add("cwls", str =>
+        {
+            Console.WriteLine(str);
+        });
+
+
         cs.Run(code, options);
     }
 }
