@@ -6,7 +6,6 @@ public class Core
     private CommandSystemOptions options = CommandSystemOptions.GetDefaultOptions();
     public Dictionary<string, string> VariableStrings = new();
     public Dictionary<string, int> VariableInts = new();
-    public Dictionary<string, bool> VariableBools = new();
     public void Run(string code)
     {
         // define variable string
