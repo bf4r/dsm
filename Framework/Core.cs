@@ -172,7 +172,15 @@ public class Core
         {
             Console.WriteLine(str);
         });
-
+        // file execute dsm
+        cs.Add("fed", path =>
+        {
+            if (File.Exists(path))
+            {
+                var fileText = File.ReadAllText(path);
+                cs.Run(fileText, options);
+            }
+        });
 
         cs.Run(code, options);
     }
