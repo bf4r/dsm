@@ -34,16 +34,22 @@ Please refer to the instruction map for all instructions, their example usage an
 #### df
 - Define function
 - Creates a new function that can be called later.
-`df myfunction: cwls hello%.`
+```
+df myfunction: cwls hello%.
+```
 - Replace all dots in the function code with %, as in end. To insert %, put "/%/".
 #### dvs
 - Define variable string
 - Creates a new string variable which can be used or redefined later.
-`dvs mystring, hello.`
+```
+dvs mystring, hello.
+```
 #### dvi
 - Define variable int
 - Creates a new integer variable which can be used or redefined later.
-`dvi myint, 1.`
+```
+dvi myint, 1.
+```
 ##### dvfis
 - Define variable from int -> string
 - Converts an existing integer variable to a string variable, keeping the integer variable but creating a new string variable with a text representation of the integer variable's value.
@@ -98,17 +104,23 @@ xvi myint.
 ### cc
 - Console clear
 - Clears the console.
-`cc`
+```
+cc
+```
 #### cwu
 - Console write UTF-8
 - Writes the ASCII or Unicode value represented by the input int to the standard output.
-`cwu 97.`
+```
+cwu 97.
+```
 This prints a without a new line.
 #### cwlu
 - Console write line UTF-8
 - Writes the ASCII or Unicode value represented by the input int to the standard output.
 - Adds a newline at the end.
-`cwlu 97.`
+```
+cwlu 97.
+```
 This prints a and a new line.
 #### cwvi
 - Console write variable int
@@ -142,13 +154,17 @@ cwlvs mystring.
 #### cws
 - Console write string
 - Writes a literal string to the standard output. Only supports single words as all whitespace is stripped out in the interpretation process.
-`cws hello.`
+```
+cws hello.
+```
 #### cwls
 - Console write line string
 - Console write string
 - Writes a literal string to the standard output. Only supports single words as all whitespace is stripped out in the interpretation process.
 - Adds a newline at the end.
-`cwls hello.`
+```
+cwls hello.
+```
 ## e
 #### ef
 - Execute function
@@ -160,5 +176,7 @@ ef myfunction.
 #### esfd
 - Execute source file dsm
 - Executes dsm code in a file with a specified path.
-`esfd helloworld.`
+```
+esfd helloworld.
+```
 - The file can't have an extension since dsm separates statements with "."
