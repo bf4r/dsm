@@ -17,7 +17,8 @@ public class Core
                 var parts = nameCode.Split(':');
                 var name = parts[0];
                 var code = parts[1];
-                code = code.Replace("%e", ".");
+                code = code.Replace("%", ".");
+                code = code.Replace("/%/", "%");
                 Functions[name] = code;
             }
         });

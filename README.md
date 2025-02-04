@@ -34,8 +34,8 @@ Please refer to the instruction map for all instructions, their example usage an
 #### df
 - Define function
 - Creates a new function that can be called later.
-`df myfunction: cwls hello%e.`
-- Replace all dots in the function code with %e, as in end.
+`df myfunction: cwls hello%.`
+- Replace all dots in the function code with %, as in end. To insert %, put "/%/".
 #### dvs
 - Define variable string
 - Creates a new string variable which can be used or redefined later.
