@@ -6,8 +6,21 @@ public class Core
     private CommandSystemOptions options = CommandSystemOptions.GetDefaultOptions();
     public Dictionary<string, string> VariableStrings = new();
     public Dictionary<string, int> VariableInts = new();
+    public Dictionary<string, string> Functions = new();
     public void Run(string code)
     {
+        // define function
+        cs.Add("df", nameCode =>
+        {
+            if (nameCode.Contains(':'))
+            {
+                var parts = nameCode.Split(':');
+                var name = parts[0];
+                var code = parts[1];
+                code = code.Replace("%e", ".");
+                Functions[name] = code;
+            }
+        });
         // define variable string
         cs.Add("dvs", argsStr =>
         {
@@ -172,13 +185,22 @@ public class Core
         {
             Console.WriteLine(str);
         });
-        // file execute dsm
-        cs.Add("efd", path =>
+        // execute source file dsm
+        cs.Add("esfd", path =>
         {
             if (File.Exists(path))
             {
                 var fileText = File.ReadAllText(path);
                 cs.Run(fileText, options);
+            }
+        });
+        // execute function
+        cs.Add("ef", name =>
+        {
+            if (Functions.ContainsKey(name))
+            {
+                var functionCode = Functions[name];
+                cs.Run(functionCode, options);
             }
         });
 

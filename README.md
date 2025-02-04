@@ -31,6 +31,11 @@ Please refer to the instruction map for all instructions, their example usage an
 
 # instruction map
 ## d
+#### df
+- Define function
+- Creates a new function that can be called later.
+`df myfunction: cwls hello%e.`
+- Replace all dots in the function code with %e, as in end.
 #### dvs
 - Define variable string
 - Creates a new string variable which can be used or redefined later.
@@ -145,8 +150,15 @@ cwlvs mystring.
 - Adds a newline at the end.
 `cwls hello.`
 ## e
-#### efd
-- Execute file dsm
+#### ef
+- Execute function
+- Executes a defined function.
+```
+df myfunction: cwls hello%e.
+ef myfunction.
+```
+#### esfd
+- Execute source file dsm
 - Executes dsm code in a file with a specified path.
-`efd helloworld.`
+`esfd helloworld.`
 - The file can't have an extension since dsm separates statements with "."
