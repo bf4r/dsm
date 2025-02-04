@@ -14,6 +14,7 @@ class CommandSystem
     {
         if (options?.Terminator == null) throw new ArgumentNullException(nameof(options));
         code = new string(code.Where(c => !char.IsWhiteSpace(c)).ToArray());
+        code = code.Replace('_', ' ');
         var ter = options.Terminator;
         var currentPos = 0;
         while (currentPos < code.Length)
