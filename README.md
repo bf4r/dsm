@@ -2,7 +2,7 @@
 - Stands for "**d**o **s**o**m**ething"
 - Programming language
 - Interpreted
-- Whitespace is ignored (put `_` instead)
+- Whitespace is ignored
 
 ## Requirements
 .NET 9.0 Runtime
