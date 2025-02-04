@@ -197,9 +197,10 @@ cig myint, 4, cwlvs msg%.
 - Execute function
 - Executes a defined function.
 ```
-df myfunction: cwls hello%e.
+df myfunction: cwls hello%.
 ef myfunction.
 ```
+- Replace every . in the code in the function block with %. To include %, write "/%/".
 #### esfd
 - Execute source file dsm
 - Executes dsm code in a file with a specified path.
