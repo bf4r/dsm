@@ -313,6 +313,12 @@ public class Core
                 }
             }
         });
+        // read line variable string
+        cs.Add("rlvs", name =>
+        {
+            var input = Console.ReadLine() ?? "";
+            VariableStrings[name] = input;
+        });
 
         cs.Run(code, options);
     }

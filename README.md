@@ -223,3 +223,11 @@ ef myfunction.
 esfd helloworld.
 ```
 - The file can't have an extension since dsm separates statements with "."
+## r
+#### rlvs
+- Read line variable string
+- Reads a line of user input and puts the input value to a string variable.
+```
+rlvs myinput.
+cwlvs myinput.
+```
