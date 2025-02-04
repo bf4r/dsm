@@ -17,8 +17,8 @@ public class Core
                 var parts = nameCode.Split(':');
                 var name = parts[0];
                 var code = parts[1];
-                code = code.Replace("%", ".");
-                code = code.Replace("/%/", "%");
+                code = code.Replace('%', '.');
+                code = code.Replace("/./", "%");
                 Functions[name] = code;
             }
         });
@@ -202,6 +202,29 @@ public class Core
             {
                 var functionCode = Functions[name];
                 cs.Run(functionCode, options);
+            }
+        });
+        // condition int equals
+        cs.Add("cie", nameVal =>
+        {
+            if (nameVal.Contains(','))
+            {
+                var parts = nameVal.Split(',');
+                if (parts.Length >= 3)
+                {
+                    var name = parts[0];
+                    var val = parts[1];
+                    var cod = string.Join(',', parts[2..]);
+                    if (int.TryParse(val, out int res))
+                    {
+                        if (VariableInts[name] == res)
+                        {
+                            cod = cod.Replace('%', '.');
+                            cod = cod.Replace("/./", "%");
+                            cs.Run(cod, options);
+                        }
+                    }
+                }
             }
         });
 

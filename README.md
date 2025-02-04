@@ -165,6 +165,14 @@ cws hello.
 ```
 cwls hello.
 ```
+#### cie
+- Condition int equals
+- Executes code if the specified int variable is equal to the specified value.
+```
+dvi myint, 1.
+cie myint, 1, cws myint% cwu 32% cws is% cwu 32% cws 1%.
+```
+- Replace every . in the code in the condition block with %. To include %, write "/%/".
 ## e
 #### ef
 - Execute function
