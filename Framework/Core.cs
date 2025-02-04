@@ -204,8 +204,8 @@ public class Core
                 cs.Run(functionCode, options);
             }
         });
-        // condition int equals
-        cs.Add("cie", nameVal =>
+        // condition variable int equals
+        cs.Add("cvie", nameVal =>
         {
             if (nameVal.Contains(','))
             {
@@ -227,8 +227,8 @@ public class Core
                 }
             }
         });
-        // condition int greater
-        cs.Add("cig", nameVal =>
+        // condition variable int greater
+        cs.Add("cvig", nameVal =>
         {
             if (nameVal.Contains(','))
             {
@@ -250,8 +250,8 @@ public class Core
                 }
             }
         });
-        // condition int less
-        cs.Add("cil", nameVal =>
+        // condition variable int less
+        cs.Add("cvil", nameVal =>
         {
             if (nameVal.Contains(','))
             {
