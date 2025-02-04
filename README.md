@@ -170,7 +170,26 @@ cwls hello.
 - Executes code if the specified int variable is equal to the specified value.
 ```
 dvi myint, 1.
-cie myint, 1, cws myint% cwu 32% cws is% cwu 32% cws 1%.
+dvs msg, myint_is_equal_to_1.
+cie mying, 1, cwlvs msg%.
+```
+- Replace every . in the code in the condition block with %. To include %, write "/%/".
+#### cil
+- Condition int less
+- Executes code if the specified int variable is less than the specified value.
+```
+dvi myint, 1.
+dvs msg, myint_is_less_than_4.
+cil myint, 4, cwlvs msg%.
+```
+- Replace every . in the code in the condition block with %. To include %, write "/%/".
+#### cig
+- Condition int greater
+- Executes code if the specified int variable is greater than the specified value.
+```
+dvi myint, 5.
+dvs msg, myint_is_greater_than_4.
+cig myint, 4, cwlvs msg%.
 ```
 - Replace every . in the code in the condition block with %. To include %, write "/%/".
 ## e
