@@ -215,7 +215,7 @@ public class Core
                     var name = parts[0];
                     var val = parts[1];
                     var cod = string.Join(',', parts[2..]);
-                    if (int.TryParse(val, out int res))
+                    if (int.TryParse(val, out int res) && VariableInts.ContainsKey(name))
                     {
                         if (VariableInts[name] == res)
                         {
@@ -238,7 +238,7 @@ public class Core
                     var name = parts[0];
                     var val = parts[1];
                     var cod = string.Join(',', parts[2..]);
-                    if (int.TryParse(val, out int res))
+                    if (int.TryParse(val, out int res) && VariableInts.ContainsKey(name))
                     {
                         if (VariableInts[name] > res)
                         {
@@ -261,7 +261,7 @@ public class Core
                     var name = parts[0];
                     var val = parts[1];
                     var cod = string.Join(',', parts[2..]);
-                    if (int.TryParse(val, out int res))
+                    if (int.TryParse(val, out int res) && VariableInts.ContainsKey(name))
                     {
                         if (VariableInts[name] < res)
                         {
@@ -284,7 +284,7 @@ public class Core
                     var name = parts[0];
                     var val = parts[1];
                     var cod = string.Join(',', parts[2..]);
-                    if (VariableStrings[name] == val)
+                    if (VariableStrings.ContainsKey(name) && VariableStrings[name] == val)
                     {
                         cod = cod.Replace('%', '.');
                         cod = cod.Replace("/./", "%");
