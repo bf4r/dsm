@@ -144,9 +144,9 @@ cwlvs mystring.
 - Writes a literal string to the standard output. Only supports single words as all whitespace is stripped out in the interpretation process.
 - Adds a newline at the end.
 `cwls hello.`
-## f
-#### fed
-- File execute dsm
+## e
+#### efd
+- Execute file dsm
 - Executes dsm code in a file with a specified path.
-`fed helloworld.`
+`efd helloworld.`
 - The file can't have an extension since dsm separates statements with "."

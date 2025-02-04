@@ -173,7 +173,7 @@ public class Core
             Console.WriteLine(str);
         });
         // file execute dsm
-        cs.Add("fed", path =>
+        cs.Add("efd", path =>
         {
             if (File.Exists(path))
             {
