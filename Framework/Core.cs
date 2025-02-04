@@ -273,6 +273,46 @@ public class Core
                 }
             }
         });
+        // condition variable string equals
+        cs.Add("cvse", nameVal =>
+        {
+            if (nameVal.Contains(','))
+            {
+                var parts = nameVal.Split(',');
+                if (parts.Length >= 3)
+                {
+                    var name = parts[0];
+                    var val = parts[1];
+                    var cod = string.Join(',', parts[2..]);
+                    if (VariableStrings[name] == val)
+                    {
+                        cod = cod.Replace('%', '.');
+                        cod = cod.Replace("/./", "%");
+                        cs.Run(cod, options);
+                    }
+                }
+            }
+        });
+        // condition string equals
+        cs.Add("cse", nameVal =>
+        {
+            if (nameVal.Contains(','))
+            {
+                var parts = nameVal.Split(',');
+                if (parts.Length >= 3)
+                {
+                    var val1 = parts[0];
+                    var val2 = parts[1];
+                    var cod = string.Join(',', parts[2..]);
+                    if (val1 == val2)
+                    {
+                        cod = cod.Replace('%', '.');
+                        cod = cod.Replace("/./", "%");
+                        cs.Run(cod, options);
+                    }
+                }
+            }
+        });
 
         cs.Run(code, options);
     }

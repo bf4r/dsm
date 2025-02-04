@@ -192,6 +192,21 @@ dvs msg, myint_is_greater_than_4.
 cvig myint, 4, cwlvs msg%.
 ```
 - Replace every . in the code in the condition block with %. To include %, write "/%/".
+#### cvse
+- Condition variable string equals
+- Executes the code after the 2nd comma if the variable named the first argument equals to the exact value of the second argument.
+```
+dvs mystring, hello.
+cvse mystring, hello, cwls mystring_equals_hello%.
+```
+#### cse
+- Condition string equals
+- Compares two literal strings and executes the code after the 2nd comma if they are equal.
+```
+cse hello, hello, cwls this_prints%.
+cse hello, hell, cwls this_doesnt_print%.
+```
+- Replace every . in the code in the condition block with %. To include %, write "/%/".
 ## e
 #### ef
 - Execute function
