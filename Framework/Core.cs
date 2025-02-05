@@ -17,8 +17,7 @@ public class Core
                 var parts = nameCode.Split(':');
                 var name = parts[0];
                 var code = parts[1];
-                code = code.Replace('%', '.');
-                code = code.Replace("/./", "%");
+                code = GetFormattedCode(code);
                 Functions[name] = code;
             }
         });
@@ -244,8 +243,7 @@ public class Core
                     {
                         if (VariableInts[name] == res)
                         {
-                            cod = cod.Replace('%', '.');
-                            cod = cod.Replace("/./", "%");
+                            cod = GetFormattedCode(cod);
                             cs.Run(cod, options);
                         }
                     }
@@ -267,8 +265,7 @@ public class Core
                     {
                         if (VariableInts[name] > res)
                         {
-                            cod = cod.Replace('%', '.');
-                            cod = cod.Replace("/./", "%");
+                            cod = GetFormattedCode(cod);
                             cs.Run(cod, options);
                         }
                     }
@@ -290,8 +287,7 @@ public class Core
                     {
                         if (VariableInts[name] < res)
                         {
-                            cod = cod.Replace('%', '.');
-                            cod = cod.Replace("/./", "%");
+                            cod = GetFormattedCode(cod);
                             cs.Run(cod, options);
                         }
                     }
@@ -311,8 +307,7 @@ public class Core
                     var cod = string.Join(',', parts[2..]);
                     if (VariableStrings.ContainsKey(name) && VariableStrings[name] == val)
                     {
-                        cod = cod.Replace('%', '.');
-                        cod = cod.Replace("/./", "%");
+                        cod = GetFormattedCode(cod);
                         cs.Run(cod, options);
                     }
                 }
@@ -331,8 +326,7 @@ public class Core
                     var cod = string.Join(',', parts[2..]);
                     if (val1 == val2)
                     {
-                        cod = cod.Replace('%', '.');
-                        cod = cod.Replace("/./", "%");
+                        cod = GetFormattedCode(cod);
                         cs.Run(cod, options);
                     }
                 }
@@ -346,5 +340,11 @@ public class Core
         });
 
         cs.Run(code, options);
+    }
+    public static string GetFormattedCode(string code)
+    {
+        return code
+        .Replace('%', '.')
+        .Replace("/./", "%");
     }
 }
