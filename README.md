@@ -50,6 +50,19 @@ dvs mystring, hello.
 ```
 dvi myint, 1.
 ```
+#### dvils
+- Define variable int length string
+- Creates a new integer variable with the value that equals the length of the string literal provided in the second argument.
+```
+dvils five, hello.
+```
+#### dvilvs
+- Define variable int length variable string
+- Creates a new integer variable with the value that equals the length of the value of the string variable with the name provided in the second argument.
+```
+dvs mystr, hello.
+dvilvs five, mystr.
+```
 ##### dvfis
 - Define variable from int -> string
 - Converts an existing integer variable to a string variable, keeping the integer variable but creating a new string variable with a text representation of the integer variable's value.

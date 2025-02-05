@@ -31,6 +31,31 @@ public class Core
                 VariableStrings[args[0]] = args[1];
             }
         });
+        // define variable int length variable string
+        cs.Add("dvilvs", argsStr =>
+        {
+            var args = argsStr.Split(",");
+            if (args.Length == 2)
+            {
+                var intName = args[0];
+                var strName = args[1];
+                if (VariableStrings.ContainsKey(strName))
+                {
+                    VariableInts[intName] = VariableStrings[strName].Length;
+                }
+            }
+        });
+        // define variable int length string
+        cs.Add("dvils", argsStr =>
+        {
+            var args = argsStr.Split(",");
+            if (args.Length == 2)
+            {
+                var intName = args[0];
+                var str = args[1];
+                VariableInts[intName] = str.Length;
+            }
+        });
         // define variable int
         cs.Add("dvi", argsStr =>
         {
